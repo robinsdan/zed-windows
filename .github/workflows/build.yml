@@ -27,11 +27,13 @@ jobs:
       run: |
         git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
         git config --global user.name github-actions[bot]
+        git config --system core.longpaths true
         git clone https://github.com/zed-industries/zed -b main zed
 
     - name: Build Executable
       run: |
         cd zed
+        git config --system core.longpaths true
         cargo build --release
 
     - name: Compile Setup Wizard
